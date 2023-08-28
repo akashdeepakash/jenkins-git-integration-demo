@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                  echo "used Maven to build my code"
+            }
+        }
+        
+        stage('Unit and Integration Tests') {
+            steps {
+                echo "Integrated a JUnit for unit and integration tests"
+            }
+        }
+        
+        stage('Code Analysis') {
+            steps {
+                echo "Integrated a security scanning tool SonarQube for code quality analysis
+                
+            }
+        }
+        
+        stage('Security Scan') {
+            steps {
+                echo "Integrated a security scanning tool SonarQube for security analysis"
+                
+            }
+        }
+        
+        stage('Deploy to Staging') {
+            steps {
+               echo "Deploy the application to your staging server (e.g., AWS EC2 instance)"
+            }
+        }
+        
+        stage('Integration Tests on Staging') {
+            steps {
+                echo "Run integration tests on the staging environment"
+            }
+        }
+        
+        stage('Deploy to Production') {
+            steps {
+                echo "Deploy the application to your production server (e.g., AWS EC2 instance)"
+            }
+        }
+    }
+    
+    post {
+        always {
+           echo "You can perform any cleanup or notification tasks here"
+        }
+    }
+}
