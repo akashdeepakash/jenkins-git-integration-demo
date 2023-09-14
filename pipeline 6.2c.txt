@@ -47,9 +47,11 @@ pipeline {
         }
     }
     
-    post {
-        always {
-           echo "You can perform any cleanup or notification tasks here"
+   post {
+                success{
+                    mail to: "akashdeep.akashdeep271291@gmail.com",
+                    subject: "Build Status Email",
+                    body: "Build was successful"
+                }
+            }
         }
-    }
-}
